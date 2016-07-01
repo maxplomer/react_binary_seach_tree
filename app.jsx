@@ -1,3 +1,13 @@
+var RenderTree = React.createClass({
+  render: function() {
+    return (
+      <div>
+        { JSON.stringify(this.props.treeArray) }
+      </div>
+    );
+  }
+});
+
 var Tree = React.createClass({
   getInitialState: function() {
     var myState= {
@@ -36,6 +46,9 @@ var Tree = React.createClass({
         Tree in array form:
         <br/>
         { JSON.stringify(this.state.tree) }
+        <br/><br/>
+        Tree in visual form:
+        <RenderTree treeArray={this.state.tree}/>
       </div>
     );
   }
