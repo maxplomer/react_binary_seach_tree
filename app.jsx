@@ -27,8 +27,13 @@ var Tree = React.createClass({
   render: function() {
     return (
       <div>
+        Add to tree:
+        <br/>
         <input type="number" min="0" step="1" value={this.state.newNodeValue} onChange={this.handleChange} placeholder="Enter integer"/>
-        <button onClick={this.addToTree}>Add to tree</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={this.addToTree}>Add</button>
+        <br/><br/>
+        Tree in array form:
         <br/>
         { JSON.stringify(this.state.tree) }
       </div>
