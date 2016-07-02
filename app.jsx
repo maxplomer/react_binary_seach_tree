@@ -4,10 +4,23 @@ var RenderTree = React.createClass({
     return Math.pow(2, row)
   },
 
+  numberOfRowsInArray: function(arrayLength) {
+    var result = 0;
+    
+    while (arrayLength > 0) {
+      var numElements = this.numberOfElementsInRow(result);
+      arrayLength -= numElements;
+      result += 1;
+    }
+
+    return result;
+  },
+
   render: function() {
     var treeArray = this.props.treeArray.slice(0)
     var result = [];
     var row = 0;
+    var numberOfRows = this.numberOfRowsInArray(this.props.treeArray.length);
 
     while (treeArray.length > 0) {
       var numElements = this.numberOfElementsInRow(row);
