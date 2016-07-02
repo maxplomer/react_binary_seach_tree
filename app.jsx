@@ -1,8 +1,27 @@
 var RenderTree = React.createClass({
+
+  numberOfElementsInRow: function(row) {
+    return Math.pow(2, row)
+  },
+
   render: function() {
+    var treeArray = this.props.treeArray.slice(0)
+    var result = [];
+    var row = 0;
+
+    while (treeArray.length > 0) {
+      var numElements = this.numberOfElementsInRow(row);
+      var rowHtml = [];
+      for (var i=0; i<numElements; i++) {
+        rowHtml.push(treeArray.shift());
+      }
+      result.push(<div>{rowHtml}</div>);
+      row += 1;
+    }
+
     return (
       <div>
-        { JSON.stringify(this.props.treeArray) }
+        { result }
       </div>
     );
   }
