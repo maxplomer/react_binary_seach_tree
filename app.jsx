@@ -13,14 +13,14 @@ var RenderTree = React.createClass({
       var numElements = this.numberOfElementsInRow(row);
       var rowHtml = [];
       for (var i=0; i<numElements; i++) {
-        rowHtml.push(treeArray.shift());
+        rowHtml.push(<span className="node-holder">{treeArray.shift()}</span>);
       }
-      result.push(<div>{rowHtml}</div>);
+      result.push(<div className="row-holder">{rowHtml}</div>);
       row += 1;
     }
 
     return (
-      <div>
+      <div className="tree-holder">
         { result }
       </div>
     );
