@@ -29,10 +29,17 @@ var RenderTree = React.createClass({
 
 var Tree = React.createClass({
   getInitialState: function() {
-    var myState= {
-      tree: [],
-      newNodeValue: null
-    };
+    var myState;
+    var storedData = sessionStorage.getItem( 'data' );
+
+    if (storedData == null) {
+      var myState= {
+        tree: [],
+        newNodeValue: null
+      };
+    } else  {
+      myState = JSON.parse(storedData);
+    }
 
     return myState;
   },
@@ -50,7 +57,7 @@ var Tree = React.createClass({
   },
 
   componentDidUpdate: function() {
-
+    sessionStorage.setItem( 'data', JSON.stringify(this.state) );
   },
 
   render: function() {
