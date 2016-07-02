@@ -16,6 +16,20 @@ var RenderTree = React.createClass({
     return result;
   },
 
+  getMarginMultiplier: function(base) {
+    //base is row counted from bottom
+    if (base == 0 ) { return 0; }
+    var result = 1;
+    var mult = 2;
+
+    for (var i=1; i<base; i++) {
+      result += mult;
+      mult *= 2;
+    }
+
+    return result;
+  },
+
   render: function() {
     var treeArray = this.props.treeArray.slice(0)
     var result = [];
@@ -25,8 +39,18 @@ var RenderTree = React.createClass({
     while (treeArray.length > 0) {
       var numElements = this.numberOfElementsInRow(row);
       var rowHtml = [];
+      var nodeStyle;
+
+      var marginMultiplier = this.getMarginMultiplier(numberOfRows - row - 1)
+      var amountOfMargin = marginMultiplier * 31;
+
+      nodeStyle = {
+        marginLeft: amountOfMargin + 'px',
+        marginRight: amountOfMargin + 'px'
+      };
+
       for (var i=0; i<numElements; i++) {
-        rowHtml.push(<span className="node-holder">{treeArray.shift()}</span>);
+        rowHtml.push(<span className="node-holder" style={nodeStyle}>{treeArray.shift()}</span>);
       }
       result.push(<div className="row-holder">{rowHtml}</div>);
       row += 1;
