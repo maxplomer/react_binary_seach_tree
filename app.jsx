@@ -50,7 +50,7 @@ var Tree = React.createClass({
 
   addToTree: function(e) {
     e.preventDefault();
-    
+
     var tree = this.state.tree;
     tree.push(Number(this.state.newNodeValue));
     this.setState({tree: tree});
@@ -76,13 +76,15 @@ var Tree = React.createClass({
           &nbsp;&nbsp;&nbsp;
           <button type="submit">Add</button>
         </form>
-        <br/><br/>
-        <button onClick={this.clearTree}>Clear tree</button>
-        <br/><br/>
+        <br/>
+
         Tree in array form:
         <br/>
         { JSON.stringify(this.state.tree) }
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={this.clearTree}>Clear tree</button>
         <br/><br/>
+
         Tree in visual form:
         <RenderTree treeArray={this.state.tree}/>
       </div>
