@@ -1,6 +1,6 @@
 # Description of Repo
 
-This is experiment into binary search trees using the React.js framework.
+This is an experiment into binary search trees using the React.js framework.
 
 
 # Implementation
