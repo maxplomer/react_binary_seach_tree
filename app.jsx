@@ -99,6 +99,28 @@ var Tree = React.createClass({
     this.setState({tree: []});
   },
 
+  heapifyTree: function() {
+    var tree = this.state.tree;
+
+    for (var i=1; i<tree.length; i++) {
+      //move up
+      var child = i;
+      while (child > 0) {
+        var parent = (child - 1) / 2;
+        if (tree[parent] < tree[child]) {
+          var tempValue = tree[child];
+          tree[child] = tree[parent];
+          tree[parent] = tempValue;
+          child = parent;
+        } else {
+          break;
+        }
+      }
+    }
+
+    this.setState({tree: tree});
+  },
+
   componentDidUpdate: function() {
     sessionStorage.setItem( 'data', JSON.stringify(this.state) );
   },
@@ -120,6 +142,8 @@ var Tree = React.createClass({
         { JSON.stringify(this.state.tree) }
         &nbsp;&nbsp;&nbsp;
         <button onClick={this.clearTree}>Clear tree</button>
+        &nbsp;&nbsp;&nbsp;
+        <button onClick={this.heapifyTree}>Heapify tree</button>
         <br/><br/>
 
         Tree in visual form:
