@@ -56,6 +56,10 @@ var Tree = React.createClass({
     this.setState({newNodeValue: null});
   },
 
+  clearTree: function() {
+    this.setState({tree: []});
+  },
+
   componentDidUpdate: function() {
     sessionStorage.setItem( 'data', JSON.stringify(this.state) );
   },
@@ -65,9 +69,11 @@ var Tree = React.createClass({
       <div>
         Add to tree:
         <br/>
-        <input type="number" min="0" max="99999" step="1" value={this.state.newNodeValue} onChange={this.handleChange} placeholder="Enter integer"/>
+        <input className="integer-input" type="number" min="0" max="99999" step="1" value={this.state.newNodeValue} onChange={this.handleChange} placeholder="Enter integer"/>
         &nbsp;&nbsp;&nbsp;
         <button onClick={this.addToTree}>Add</button>
+        <br/><br/>
+        <button onClick={this.clearTree}>Clear tree</button>
         <br/><br/>
         Tree in array form:
         <br/>
