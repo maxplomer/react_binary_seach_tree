@@ -65,7 +65,7 @@ var Tree = React.createClass({
       <div>
         Add to tree:
         <br/>
-        <input type="number" min="0" step="1" value={this.state.newNodeValue} onChange={this.handleChange} placeholder="Enter integer"/>
+        <input type="number" min="0" max="99999" step="1" value={this.state.newNodeValue} onChange={this.handleChange} placeholder="Enter integer"/>
         &nbsp;&nbsp;&nbsp;
         <button onClick={this.addToTree}>Add</button>
         <br/><br/>
