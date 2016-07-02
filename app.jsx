@@ -48,7 +48,9 @@ var Tree = React.createClass({
     this.setState({newNodeValue: event.target.value});
   },
 
-  addToTree: function() {
+  addToTree: function(e) {
+    e.preventDefault();
+    
     var tree = this.state.tree;
     tree.push(Number(this.state.newNodeValue));
     this.setState({tree: tree});
@@ -69,9 +71,11 @@ var Tree = React.createClass({
       <div>
         Add to tree:
         <br/>
-        <input className="integer-input" type="number" min="0" max="99999" step="1" value={this.state.newNodeValue} onChange={this.handleChange} placeholder="Enter integer"/>
-        &nbsp;&nbsp;&nbsp;
-        <button onClick={this.addToTree}>Add</button>
+        <form onSubmit={this.addToTree}>
+          <input className="integer-input" type="number" min="0" max="99999" step="1" value={this.state.newNodeValue} onChange={this.handleChange} placeholder="Enter integer"/>
+          &nbsp;&nbsp;&nbsp;
+          <button type="submit">Add</button>
+        </form>
         <br/><br/>
         <button onClick={this.clearTree}>Clear tree</button>
         <br/><br/>
