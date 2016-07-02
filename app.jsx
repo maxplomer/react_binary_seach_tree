@@ -106,7 +106,7 @@ var Tree = React.createClass({
       //move up
       var child = i;
       while (child > 0) {
-        var parent = (child - 1) / 2;
+        var parent = Math.floor((child - 1) / 2);
         if (tree[parent] < tree[child]) {
           var tempValue = tree[child];
           tree[child] = tree[parent];
