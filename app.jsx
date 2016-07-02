@@ -33,7 +33,7 @@ var Tree = React.createClass({
     var storedData = sessionStorage.getItem( 'data' );
 
     if (storedData == null) {
-      var myState= {
+      myState = {
         tree: [],
         newNodeValue: null
       };
