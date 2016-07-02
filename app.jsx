@@ -1,5 +1,4 @@
 var RenderTree = React.createClass({
-
   numberOfElementsInRow: function(row) {
     return Math.pow(2, row)
   },
@@ -39,12 +38,11 @@ var RenderTree = React.createClass({
     while (treeArray.length > 0) {
       var numElements = this.numberOfElementsInRow(row);
       var rowHtml = [];
-      var nodeStyle;
 
       var marginMultiplier = this.getMarginMultiplier(numberOfRows - row - 1)
       var amountOfMargin = marginMultiplier * 31;
 
-      nodeStyle = {
+      var nodeStyle = {
         marginLeft: amountOfMargin + 'px',
         marginRight: amountOfMargin + 'px'
       };
