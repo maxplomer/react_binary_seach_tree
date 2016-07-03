@@ -1,11 +1,11 @@
 # Description of Repo
 
-This is an experiment into binary search trees using the React.js framework.
+This is an experiment into binary trees using the React.js framework.
 
 
 # Implementation
 
-This binary search tree is stored in a state array.
+This binary tree is stored in a state array.
 
 
 # Install/Running
