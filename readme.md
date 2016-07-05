@@ -1,11 +1,11 @@
 # Description of Repo
 
-This is an experiment into binary trees using the React.js framework.
+This is an experiment into heaps using the React.js framework.
 
 
 # Implementation
 
-This binary tree is stored in a state array.
+The heap binary tree is stored in a state array.
 
 
 # Install/Running
